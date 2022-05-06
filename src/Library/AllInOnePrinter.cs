@@ -8,7 +8,7 @@
 //No cumple con patron polimorfismo
 //El codigo varia segun el destino, deberia estar en diferentes clases. 
 //Se tendra que definir IPrinter y dos clases que lo implementen.
-//Estas clases serían Console (consola) y Printer (impresora)
+//Estas clases serían ConsoleP (consola) y FileP (impresora)
 
 using System;
 using System.IO;
