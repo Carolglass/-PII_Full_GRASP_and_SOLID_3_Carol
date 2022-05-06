@@ -19,6 +19,7 @@ namespace Full_GRASP_And_SOLID
 
         public static void Main(string[] args)
         {
+
             PopulateCatalogs();
 
             Recipe recipe = new Recipe();
@@ -26,9 +27,29 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
 
-            AllInOnePrinter printer = new AllInOnePrinter();
-            printer.PrintRecipe(recipe, Destination.Console);
-            printer.PrintRecipe(recipe, Destination.File);
+            //AllInOnePrinter printer = new AllInOnePrinter(); Se comenta ya que no cumplía con Polimorfismo
+            
+            IPrinter printer;
+
+            //Se declara primera variable de tipo IPrinter
+            //Se le asigna una instancia de ConsoleP
+
+            printer = new ConsoleP();
+            printer.PrintRecipe(recipe);
+
+            //Se declara segunda variable de tipo IPrinter
+            //Se le asigna una instancia de FileP
+
+            printer = new FileP();
+            printer.PrintRecipe(recipe);
+
+            /*Linea 49 y 50 innecesarias, pues ya se declararon nuevas variables de tipo IPrinter y 
+            se les asigno a cada una
+            para imprimir por Consola o Impresora cumpliendo con Patron polimorfismo, 
+            como pedía la letra del ejercicio*/
+
+            //printer.PrintRecipe(recipe, Destination.Console);
+            //printer.PrintRecipe(recipe, Destination.File);
         }
 
         private static void PopulateCatalogs()
