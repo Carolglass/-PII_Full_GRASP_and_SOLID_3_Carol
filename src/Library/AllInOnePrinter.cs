@@ -3,18 +3,31 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+
+//Clase del codigo inicial
+//No cumple con patron polimorfismo
+//El codigo varia segun el destino, deberia estar en diferentes clases. 
+//Se tendra que definir IPrinter y dos clases que lo implementen.
+//Estas clases serían Console (consola) y Printer (impresora)
+
 using System;
 using System.IO;
 
 namespace Full_GRASP_And_SOLID.Library
 {
     public enum Destination
+
+
+
     {
         Console,
         File
     }
 
     public class AllInOnePrinter
+
+
+
     {
         public void PrintRecipe(Recipe recipe, Destination destination)
         {
